@@ -12,4 +12,4 @@ symbols = "[]{}()*;/.,-_"
 all = lowercase + uppercase + numbers + symbols
 length = 12
 password = "".join(random.sample(all,length))
-print(password)```
+print(password)
