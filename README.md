@@ -2,7 +2,8 @@
 Generate a 12 digit strong password to keep you credentials safe
 ## Code
 
-```import random
+```
+import random
 
 lowercase = "abcdefghijklmnopqrstuvwxyz"
 uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
