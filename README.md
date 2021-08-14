@@ -2,7 +2,7 @@
 Generate a 12 digit strong password to keep you credentials safe
 ## Code
 
-```
+```py
 import random
 
 lowercase = "abcdefghijklmnopqrstuvwxyz"
