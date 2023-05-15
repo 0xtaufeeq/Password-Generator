@@ -11,6 +11,6 @@ numbers = "0123456789"
 symbols = "[]{}()*;/.,-_"
 
 all = lowercase + uppercase + numbers + symbols
-length = 12
+length = int(input("Enter the length of the password - "))
 password = "".join(random.sample(all,length))
-print(password)
+print(password) ```
