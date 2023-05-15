@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Generator</title>
+</head>
+<body>
+    <h1>Password Generator</h1>
+    {% if error %}
+        <p style="color: red">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('generate_password') }}">
+        <label for="length">Length:</label>
+        <input type="number" name="length" min="1" max="50" required><br>
+
+        <input type="checkbox" name="include_lowercase" id="include_lowercase" value="on">
+        <label for="include_lowercase">Include lowercase letters</label><br>
+
+        <input type="checkbox" name="include_uppercase" id="include_uppercase" value="on">
+        <label for="include_uppercase">Include uppercase letters</label><br>
+
+        <input type="checkbox" name="include_numbers" id="include_numbers" value="on">
+        <label for="include_numbers">Include numbers</label><br>
+
+        <input type="checkbox" name="include_symbols" id="include_symbols" value="on">
+        <label for="include_symbols">Include symbols</label><br>
+
+        <label for="num_passwords">Number of passwords:</label>
+        <input type="number" name="num_passwords" min="1" max="100" required><br>
+
+        <input type="submit" value="Generate Passwords">
+    </form>
+
+    {% if passwords %}
+        <h2>Passwords:</h2>
+        <ul>
+            {% for password in passwords %}
+                <li>{{ password }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
