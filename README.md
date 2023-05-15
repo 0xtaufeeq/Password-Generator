@@ -13,4 +13,4 @@ symbols = "[]{}()*;/.,-_"
 all = lowercase + uppercase + numbers + symbols
 length = int(input("Enter the length of the password - "))
 password = "".join(random.sample(all,length))
-print(password) ```
+print(password)
