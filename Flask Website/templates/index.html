@@ -2,41 +2,37 @@
 <html>
 <head>
     <title>Password Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Password Generator</h1>
-    {% if error %}
-        <p style="color: red">{{ error }}</p>
-    {% endif %}
-    <form method="POST" action="{{ url_for('generate_password') }}">
-        <label for="length">Length:</label>
-        <input type="number" name="length" min="1" max="50" required><br>
-
-        <input type="checkbox" name="include_lowercase" id="include_lowercase" value="on">
-        <label for="include_lowercase">Include lowercase letters</label><br>
-
-        <input type="checkbox" name="include_uppercase" id="include_uppercase" value="on">
-        <label for="include_uppercase">Include uppercase letters</label><br>
-
-        <input type="checkbox" name="include_numbers" id="include_numbers" value="on">
-        <label for="include_numbers">Include numbers</label><br>
-
-        <input type="checkbox" name="include_symbols" id="include_symbols" value="on">
-        <label for="include_symbols">Include symbols</label><br>
-
-        <label for="num_passwords">Number of passwords:</label>
-        <input type="number" name="num_passwords" min="1" max="100" required><br>
-
-        <input type="submit" value="Generate Passwords">
-    </form>
-
-    {% if passwords %}
-        <h2>Passwords:</h2>
-        <ul>
-            {% for password in passwords %}
-                <li>{{ password }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+    <div class="container">
+        <h1>Password Generator</h1>
+        <div class="options">
+            <div class="option">
+                <input type="number" id="length" name="length" min="8" max="64" value="12">
+                <label for="length">Password Length</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="include_lowercase" name="include_lowercase" checked>
+                <label for="include_lowercase"><i class="fas fa-font"></i> Lowercase</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="include_uppercase" name="include_uppercase" checked>
+                <label for="include_uppercase"><i class="fas fa-font"></i> Uppercase</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="include_numbers" name="include_numbers" checked>
+                <label for="include_numbers"><i class="fas fa-hashtag"></i> Numbers</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="include_symbols" name="include_symbols" checked>
+                <label for="include_symbols"><i class="fas fa-exclamation"></i> Symbols</label>
+            </div>
+        </div>
+        <button id="generate_button">Generate Password</button>
+        <div id="generated_password"></div>
+    </div>
+    <script src="https://kit.fontawesome.com/your-key.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
